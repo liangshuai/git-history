@@ -28,7 +28,7 @@
     "webpack-hot-middleware": "^2.0.0"
   },
   "dependencies": {
-    "mithril": "^0.1.34"
+    "mithril": "0.2.4"
   },
   "author": "Shuai Liang <liangshuais@qq.com>",
   "license": "MIT"

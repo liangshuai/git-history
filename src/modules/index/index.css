@@ -1,0 +1,11 @@
+.h2{
+	background-color: red;
+}
+.mainBoard{
+    bottom: 52px;
+    top: 24px;
+    left: 51px;
+    right: 26px;
+    position: absolute;
+    z-index: 1;
+}

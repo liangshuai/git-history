@@ -1,0 +1,16 @@
+body {
+	font-family: "Helvetica Neue","Helvetica","Lucida Grande","Arial","Hiragino Sans GB","Microsoft Yahei","WenQuanYi Micro Hei","sans-serif";
+    color: #9c9c9c;
+}
+
+:global(.fa) {
+	margin-right: 5px;
+}
+
+:global(#root) {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}

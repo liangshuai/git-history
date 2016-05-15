@@ -1,7 +1,9 @@
-import m from 'mithril'
-import Demo from './components/Demo/Demo'
-import DemoStyle from './components/Demo/Demo.css'
+import m from 'mithril';
+import Index from './modules/index/';
+import styles from './style/index.css';
 
-m.render(document.body,
-  m("Demo", "hello demo")
-);
+m.route.mode = 'pathname';
+
+m.route(document.getElementById('root'), '/', {
+	"/": Index
+});
