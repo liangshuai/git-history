@@ -1,0 +1,20 @@
+.rightBar {
+	background-color: #3B3E40;
+	position: absolute;
+    height: 100%;
+    width: 25px;
+    border-right: 1px solid #2d2d2d;
+    right: 0;
+}
+
+.toolButton{
+    display: inline-block;
+    background-color: #333;
+    transform: rotate(90deg);
+    white-space: nowrap;
+    transform-origin: 0 0;
+    line-height: 1.5;
+    padding: 0 10px;
+    position: relative;
+    right: -100%;
+}
