@@ -1,4 +1,5 @@
 import m from 'mithril';
+import cx from 'classnames';
 import styles from './LeftBar.css';
 
 var LeftBar = module.exports = {
