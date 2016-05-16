@@ -1,0 +1,20 @@
+.treePanel{
+    width: 360px;
+    height: 100%;
+    position: absolute;
+    background: #3B3E40;
+}
+
+.toolBar{
+	border-bottom: 1px solid #2d2d2d;
+    line-height: 1.8;
+}
+
+.toolBarCommands{
+    text-align: right;
+}
+
+.toolBarCommand{
+	display: inline-block;
+    width: 30px;
+}

@@ -9,8 +9,7 @@
   "scripts": {
     "start": "node ./serverDev.js"
   },
-  "peerDependencies": {
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "autoprefixer": "^6.1.0",
     "babel-core": "^6.0.20",
@@ -28,6 +27,7 @@
     "webpack-hot-middleware": "^2.0.0"
   },
   "dependencies": {
+    "classnames": "^2.2.5",
     "mithril": "0.2.4"
   },
   "author": "Shuai Liang <liangshuais@qq.com>",
