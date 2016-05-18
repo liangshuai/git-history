@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "classnames": "^2.2.5",
-    "mithril": "0.2.4"
+    "mithril": "0.2.4",
+    "ramda": "^0.21.0"
   },
   "author": "Shuai Liang <liangshuais@qq.com>",
   "license": "MIT"
