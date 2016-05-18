@@ -7,7 +7,25 @@ var CommitContainer = module.exports = {
 
 	view: function(ctrl) {
 		var list = [{
-			'a': 1
+			commitId: '885edf7dc899f19f125520a614bd094f1bf64fd7',
+			author: 'Shuai_Liang',
+			authorEmail: 'Shuai_Liang@epam.com',
+			committer: 'Shuai_Liang',
+			committerEmail: 'Shuai_Liang@epam.com',
+			commitDate: 'Wed May 4 14:10:20 2016 +0800',
+			commitRelateDate: '2 weeks ago',
+			commitSubject: 'update',
+			commitBody: ''
+		}, {
+			commitId: '8db731d58b7880147bb8f7559cdfe0218535dfdb',
+			author: 'liangshuai',
+			authorEmail: 'liangshuais@qq.com',
+			committer: 'liangshuai',
+			committerEmail: 'liangshuais@qq.com',
+			commitDate: 'Mon May 2 21:31:48 2016 +0800',
+			commitRelateDate: '2 weeks ago',
+			commitSubject: 'init',
+			commitBody: ''
 		}];
 
 		return m("div", {
@@ -40,20 +58,28 @@ function CommitNode(nodeData) {
 		m('i.fa.fa-github', {
 			class: styles.portrait
 		}),
-		m('span', {
-			class: styles.subject
-		}, 'Commit Subject'),
-		m('span', {
-			class: styles.committer
-		}, 'Commit On'),
-		m('span', {
-			class: styles.commitDate
-		}, 'Committer'),
-		m('span', {
-			class: styles.commitId
-		}, 'CommitID'),
-		m('button', {
-			class: styles.btnCheckout
-		}, 'Checkout')
+		m('div', {
+			class: styles.committerField
+		}, [
+			m('div', {
+				class: styles.subject
+			}, nodeData.commitSubject),
+			m('span', {
+				class: styles.committer
+			}, nodeData.committer),
+			m('span', {
+				class: styles.commitDate
+			}, ' Committed ' + nodeData.commitRelateDate),
+		]),
+		m('div', {
+			class: styles.buttons
+		}, [
+			m('a', {
+				class: [styles.commitId, styles.linkButton].join(' ')
+			}, nodeData.commitId.substr(0, 7)),
+			m('a.fa.fa-bars', {
+				class: [styles.btnCheckout, styles.linkButton].join(' ')
+			}, '')
+		])
 	]);
 }

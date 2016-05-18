@@ -4,7 +4,7 @@ import TreeModel from '../../model/Tree.js';
 
 var Tree  = module.exports = {
     controller: function() {
-        TreeModel.init().list();
+        // TreeModel.init().list();
     },
     view: function(ctrl) {
         return m("div", {}, [
