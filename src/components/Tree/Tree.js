@@ -4,20 +4,17 @@ import styles from './Tree.css';
 import TreeModel from '../../model/Tree.js';
 
 var TreeElem = {
-    controller: function() {
-        return {greeting: "hello"}
-    },
     view: function(ctrl, obj) {
 
         var template = function(item) {
-            return m('li', [
-                            m('div', {class: 'treeWholeRow'}),
+            return m('li',  [
+                            m('div', {class: styles.treeWholeRow, onclick: function() { item.toggle = !item.toggle; item.active = true; }}),
                             m('div', {class: styles.rowText}, [
-                                m('i.fa.fa-caret-down'),
+                                item.children?(item.toggle ? m('i.fa.fa-caret-down'): m('i.fa.fa-caret-right')): '',
                                 item.children? m('i.fa.fa-folder-open-o') : m('i.fa.fa-file-text-o'),
                                 item.name
                             ]),
-                            item.children?m.component(TreeElem, item.children): ''
+                            item.children && item.toggle?m.component(TreeElem, item.children): ''
                         ]);
         }
 

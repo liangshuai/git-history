@@ -4,4 +4,16 @@
 }
 .rowText{
 	line-height: 1.5;
+	cursor: pointer;
+}
+
+.treeWholeRow{
+	position: absolute;
+    line-height: 1.5;
+    width: 100%;
+    height: 23px;
+    left: 0;
+    /*background-color: rgba(26,175,93,.5);*/
+    color: #FFF;
+    cursor: pointer;
 }
