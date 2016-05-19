@@ -1,37 +1,18 @@
 import m from 'mithril';
 import styles from './Commits.css';
+import CommitModel from '../../model/Commit.js';
 
 var CommitContainer = module.exports = {
 	_current: 'CommitContainer',
-	controller: function() {},
+	controller: function() {
+
+	},
 
 	view: function(ctrl) {
-		var list = [{
-			commitId: '885edf7dc899f19f125520a614bd094f1bf64fd7',
-			author: 'Shuai_Liang',
-			authorEmail: 'Shuai_Liang@epam.com',
-			committer: 'Shuai_Liang',
-			committerEmail: 'Shuai_Liang@epam.com',
-			commitDate: 'Wed May 4 14:10:20 2016 +0800',
-			commitRelateDate: '2 weeks ago',
-			commitSubject: 'update',
-			commitBody: ''
-		}, {
-			commitId: '8db731d58b7880147bb8f7559cdfe0218535dfdb',
-			author: 'liangshuai',
-			authorEmail: 'liangshuais@qq.com',
-			committer: 'liangshuai',
-			committerEmail: 'liangshuais@qq.com',
-			commitDate: 'Mon May 2 21:31:48 2016 +0800',
-			commitRelateDate: '2 weeks ago',
-			commitSubject: 'init',
-			commitBody: ''
-		}];
-
 		return m("div", {
 			class: styles.container
 		}, [
-			CommitList(list)
+			CommitList(ctrl.list)
 		]);
 	}
 };
