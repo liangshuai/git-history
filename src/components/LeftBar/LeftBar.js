@@ -8,7 +8,7 @@ var LeftBar = module.exports = {
 
     view: function(ctrl) {
         return m("div", {class: styles.leftBar}, [
-            m('div', {class: styles.toolButton}, [
+            m('div.pointer', {class: styles.toolButton}, [
                 m('i.fa.fa-github'),
                 m('span', 'Project')
             ])

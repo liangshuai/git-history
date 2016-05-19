@@ -1,0 +1,96 @@
+.container {
+	background-color: #333;
+	position: absolute;
+    height: 100%;
+    width: 600px;
+    border-left: 5px solid #3B3E40;
+    padding: 30px;
+    right: 25px;
+    z-index: 10;
+}
+
+.list {
+	height: 100%;
+	overflow: auto;
+	width: 100%;
+}
+
+.node {
+	border: 1px solid #aaa;
+	border-bottom: none;
+	height: 30px;
+	padding: 10px;
+	width: auto;
+}
+
+.node:last-child {
+	border-bottom: 1px solid #aaa;
+}
+
+.portrait {
+	background-color: #333;
+	color: #fff;
+	float: left;
+	font-size: 30px;
+	height: 30px;
+	width: 30px;
+}
+
+.committerField {
+	float: left;
+	margin-top: 1px;
+	width: 400px;
+}
+
+.subject {
+	float: left;
+	font-size: 14px;
+	font-weight: 700;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 100%;
+}
+
+.committer {
+	display: inline;
+	font-size: 14px;
+	font-weight: 500;
+}
+
+.commitDate {
+	display: inline;
+	font-size: 14px;
+}
+
+.buttons {
+	float: left;
+	width: calc(100% - 435px);
+}
+
+.linkButton {
+	border: 1px solid #aaa;
+	float: left;
+	font-size: 12px;
+	font-weight: bold;
+	height: 30px;
+	line-height: 30px;
+	margin-right: 10px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.linkButton:hover {
+	background-color: #aaa;
+	border-color: #333;
+	color: #333;
+	cursor: pointer;
+}
+
+.commitId {	
+	width: 80px;
+}
+
+
+.btnCheckout {
+	width: 35px;
+}
