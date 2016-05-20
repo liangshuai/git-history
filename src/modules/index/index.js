@@ -6,6 +6,7 @@ import Commits from '../../components/Commits/Commits.js';
 import TreePanel from '../../components/TreePanel/TreePanel.js';
 import Tree from '../../model/Tree.js';
 import styles from './index.css';
+import state from '../../model/State.js';
 
 
 var Index = module.exports = {
@@ -15,13 +16,13 @@ var Index = module.exports = {
 		return [
 				m.component(Nav),
 				m('.mainBoard', {class: styles.mainBoard},[
-					m.component(TreePanel),
-					m('h1', 'Index Page')
+					state.treeState?m.component(TreePanel): '',
+					m('div', {class: styles.editor}, 'Index Page')
 				]),
 				m('.sidebar', [
 					m.component(LeftBar),
 					m.component(RightBar),
-					m.component(Commits)
+					state.commitsState?m.component(Commits): ''
 				])
 			];
 	}

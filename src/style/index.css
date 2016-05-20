@@ -15,6 +15,6 @@ body {
 	bottom: 0;
 }
 
-.pointer {
+:global(.pointer) {
 	cursor: pointer;
 }
