@@ -4,10 +4,7 @@ var files = require('./mock/files');
 var commits = require('./mock/commits');
 
 
-console.log('git in');
-
 router.get('/files', function(req, res) {
-	console.log(files);
 	res.send(files);
 });
 

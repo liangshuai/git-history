@@ -5,14 +5,14 @@ import CommitModel from '../../model/Commit.js';
 var CommitContainer = module.exports = {
 	_current: 'CommitContainer',
 	controller: function() {
-
+		this.list =  CommitModel.list();
 	},
 
 	view: function(ctrl) {
 		return m("div", {
 			class: styles.container
 		}, [
-			CommitList(ctrl.list)
+			CommitList(ctrl.list())
 		]);
 	}
 };
