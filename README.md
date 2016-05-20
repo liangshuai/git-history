@@ -2,6 +2,15 @@
 
 This is a tool to view git history
 
+##Requirements
+
+* WebPack
+* Mithril.js
+* Express
+* Ramda.js
+* Babel
+* [Css Modules](http://glenmaddern.com/articles/css-modules)
+* Brace 
 
 ## Run
 
