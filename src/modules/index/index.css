@@ -8,4 +8,9 @@
     right: 26px;
     position: absolute;
     z-index: 1;
+    display: flex;
+}
+
+.editor{
+	flex: 1;
 }

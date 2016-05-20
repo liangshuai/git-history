@@ -1,6 +1,6 @@
 import m from 'mithril';
-import globalStyles from './../../style/index.css';
 import styles from './RightBar.css';
+import state from '../../model/State.js';
 
 var rightBar = module.exports = {
 	controller: function() {},
@@ -9,8 +9,11 @@ var rightBar = module.exports = {
 		return m("div", {
 			class: styles.rightBar
 		}, [
-			m('div', {
-				class:  [styles.toolButton, globalStyles.pointer].join(' ')
+			m('div.pointer', {
+				class:  styles.toolButton,
+				onclick: function() {
+					state.commitsState = !state.commitsState;
+				}
 			}, [
 				m('i.fa.fa-list'),
 				m('span', 'Commits')
