@@ -1,6 +1,7 @@
 var State = {
 	treeState: true,
-	commitsState: false
+	commitsState: false,
+	activeDirOrFile: ''
 }
 
 module.exports = State;

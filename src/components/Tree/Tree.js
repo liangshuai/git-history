@@ -1,20 +1,25 @@
 import m from 'mithril';
 import R from 'ramda';
+import cx from 'classnames';
 import styles from './Tree.css';
 import TreeModel from '../../model/Tree.js';
+import state from '../../model/State.js';
 
 var TreeElem = {
     view: function(ctrl, obj) {
 
         var template = function(item) {
             return m('li',  [
-                            m('div', {class: styles.treeWholeRow, onclick: function() {                            
+                            m('div', {class: cx(styles.treeWholeRow, {
+                                'active': state.activeDirOrFile === item.path
+                            }), onclick: function() {                            
                                 if(item.children) {
                                     item.toggle = !item.toggle;
                                     item.active = true;
                                 }else {
-                                    alert(item.path);
+                                    //TODO
                                 }
+                                state.activeDirOrFile = item.path;
                              }}),
                             m('div', {class: styles.rowText}, [
                                 item.children?(item.toggle ? m('i.fa.fa-caret-down'): m('i.fa.fa-caret-right')): '',
