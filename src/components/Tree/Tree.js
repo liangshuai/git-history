@@ -8,7 +8,14 @@ var TreeElem = {
 
         var template = function(item) {
             return m('li',  [
-                            m('div', {class: styles.treeWholeRow, onclick: function() { item.toggle = !item.toggle; item.active = true; }}),
+                            m('div', {class: styles.treeWholeRow, onclick: function() {                            
+                                if(item.children) {
+                                    item.toggle = !item.toggle;
+                                    item.active = true;
+                                }else {
+                                    alert(item.path);
+                                }
+                             }}),
                             m('div', {class: styles.rowText}, [
                                 item.children?(item.toggle ? m('i.fa.fa-caret-down'): m('i.fa.fa-caret-right')): '',
                                 item.children? m('i.fa.fa-folder-open-o') : m('i.fa.fa-file-text-o'),

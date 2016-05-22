@@ -2,6 +2,7 @@
     width: 360px;
     height: 100%;
     background: #3B3E40;
+    position: relative;
 }
 
 .toolBar{

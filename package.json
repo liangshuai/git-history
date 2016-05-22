@@ -27,6 +27,7 @@
     "webpack-hot-middleware": "^2.0.0"
   },
   "dependencies": {
+    "brace": "^0.8.0",
     "classnames": "^2.2.5",
     "mithril": "0.2.4",
     "ramda": "^0.21.0"

@@ -7,17 +7,30 @@ import TreePanel from '../../components/TreePanel/TreePanel.js';
 import Tree from '../../model/Tree.js';
 import styles from './index.css';
 import state from '../../model/State.js';
+import ace from 'brace';
+import aceJavaScript from 'brace/mode/javascript';
+import themeMonokai from 'brace/theme/monokai';
+ 
+
 
 
 var Index = module.exports = {
 	controller: function(){
 	},
 	view: function() {
+		var editor = function() {
+			var editor = ace.edit('javascript-editor');
+			editor.getSession().setMode('ace/mode/javascript');
+			editor.setTheme('ace/theme/monokai');
+		}
 		return [
 				m.component(Nav),
 				m('.mainBoard', {class: styles.mainBoard},[
 					state.treeState?m.component(TreePanel): '',
-					m('div', {class: styles.editor}, 'Index Page')
+					m('#javascript-editor', {
+						class: styles.editor,
+						config: editor
+					})
 				]),
 				m('.sidebar', [
 					m.component(LeftBar),
