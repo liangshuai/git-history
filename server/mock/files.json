@@ -1,5 +1,5 @@
 {
-	"git-history": {
+	"node-git": {
 		"src": {
 			"command": {
 				"files": ["diff.js", "index.js", "init.js", "log.js", "ls-files.js", "status.js"]
