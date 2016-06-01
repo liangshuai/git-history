@@ -63,13 +63,16 @@ router.get('/file/:path*', function(req, res) {
 });
 
 router.get('/diff', function(req, res) {
-	var path = req.params.path;
-	var addon = req.params['0'];
-	var fullPath = addon? path + addon : path;
+	var repoName = req.session.repoName || 'node-git';
+	var git = new Git('./repo/' + repoName);
+	var targetCommitId = req.params.commitId;
 
-	FS.readFile( './repo/' + fullPath, 'utf8', function(err, data) {
-	    if (err) throw err;
-		res.send({data: data});
+	git.diff(targetCommitId).then(response => {
+		res.send(response);
+	}).catch(err => {
+		res.send({
+			"message": "error"
+		});
 	});
 });
 
