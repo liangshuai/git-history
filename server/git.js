@@ -39,7 +39,16 @@ router.get('/clone', function(req, res) {
 });
 
 router.get('/commits', function(req, res) {
-	res.send(commits);
+	var repoName = req.session.repoName || 'node-git';
+
+	var git = new Git('./repo/' + repoName);
+	git.log().then(list => {
+		res.send(list);
+	}).catch(err => {
+		res.send({
+			"message": "error"
+		});
+	});
 });
 
 router.get('/file/:path*', function(req, res) {
@@ -50,6 +59,20 @@ router.get('/file/:path*', function(req, res) {
 	FS.readFile( './repo/' + fullPath, 'utf8', function(err, data) {
 	    if (err) throw err;
 		res.send({data: data});
+	});
+});
+
+router.get('/diff', function(req, res) {
+	var repoName = req.session.repoName || 'node-git';
+	var git = new Git('./repo/' + repoName);
+	var targetCommitId = req.params.commitId;
+
+	git.diff(targetCommitId).then(response => {
+		res.send(response);
+	}).catch(err => {
+		res.send({
+			"message": "error"
+		});
 	});
 });
 
