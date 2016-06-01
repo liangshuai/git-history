@@ -39,10 +39,30 @@ router.get('/clone', function(req, res) {
 });
 
 router.get('/commits', function(req, res) {
-	res.send(commits);
+	var repoName = req.session.repoName || 'node-git';
+
+	var git = new Git('./repo/' + repoName);
+	git.log().then(list => {
+		res.send(list);
+	}).catch(err => {
+		res.send({
+			"message": "error"
+		});
+	});
 });
 
 router.get('/file/:path*', function(req, res) {
+	var path = req.params.path;
+	var addon = req.params['0'];
+	var fullPath = addon? path + addon : path;
+
+	FS.readFile( './repo/' + fullPath, 'utf8', function(err, data) {
+	    if (err) throw err;
+		res.send({data: data});
+	});
+});
+
+router.get('/diff', function(req, res) {
 	var path = req.params.path;
 	var addon = req.params['0'];
 	var fullPath = addon? path + addon : path;
