@@ -7,12 +7,12 @@ var Nav = module.exports = {
 
     view: function(ctrl) {
         return m("nav", {class: styles.nav}, [
-            m("ul", {class: styles.navList}, [
-            	m('li', {class: styles.navItem}, [
+            m("ul", {class: styles.list}, [
+            	m('li', {class: styles.item}, [
             		m('i.fa.fa-folder-o'),
             		'Git History'
             	]),
-            	m('li', {class: styles.navItem}, [
+            	m('li', {class: styles.item}, [
             		m('i.fa.fa-file-text-o'),
             		'index.js'
             	])

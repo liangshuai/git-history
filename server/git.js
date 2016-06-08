@@ -5,7 +5,6 @@ var commits = require('./mock/commits');
 var FS = require('fs');
 var PATH = require('path');
 var Git = require('git-command');
-var _ = require('./util');
 
 router.get('/files', function(req, res) {
 	var repoName = req.session.repoName || 'node-git';
@@ -15,10 +14,6 @@ router.get('/files', function(req, res) {
 		var result = {};
 
 		result[repoName] = list;
-		result = _.sortKeys(result, function(a,b) {
-			return a === 'files'? 1 : 0;
-		});
-		console.log(result);
 		res.send(result);
 	});
 });

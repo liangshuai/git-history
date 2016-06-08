@@ -3,9 +3,22 @@ import m from 'mithril';
 var Tree = function(data) {
 }
 
+var sortKeys = function(obj, sortFun) {
+    return Object.keys(obj).sort(sortFun).reduce(function (result, key) {
+        result[key] = obj[key];
+        return result;
+    }, {});
+}
+
 var adapter = function(obj, result, prev) {
 	result = result || {};
+
+	obj = sortKeys(obj, function(a,b) {
+		return a !== 'files'? 0 : 1;
+	});
+
 	for(var key in obj) {
+
 		if(key === 'files') {
 			obj[key].forEach(function(elem) {
 				Array.prototype.push.call(result, {
@@ -32,9 +45,9 @@ var adapter = function(obj, result, prev) {
 Tree.list = function(data) {
 	var model = {};
 
-
 	return m.request({method: "GET", url: "/git/files"}).then(function(res) {
-		return adapter(res);
+		var result = adapter(res);
+		return result;
 	});
 }
 
