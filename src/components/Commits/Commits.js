@@ -1,6 +1,8 @@
 import m from 'mithril';
 import styles from './Commits.css';
 import CommitModel from '../../model/Commit.js';
+import Tree from '../../model/Tree';
+import state from '../../model/State.js';
 
 var CommitContainer = module.exports = {
 	_current: 'CommitContainer',
@@ -16,6 +18,12 @@ var CommitContainer = module.exports = {
 		]);
 	}
 };
+
+function diffTransformer(response) {
+    return Tree.diff().then(function(diff) {
+        return response;
+    });
+}
 
 function CommitList(list) {
 	var result = [];
@@ -59,7 +67,10 @@ function CommitNode(nodeData) {
 				class: [styles.commitId, styles.linkButton].join(' ')
 			}, nodeData.commitId.substr(0, 7)),
 			m('a.fa.fa-bars', {
-				class: [styles.btnCheckout, styles.linkButton].join(' ')
+				class: [styles.btnCheckout, styles.linkButton].join(' '),
+				onclick: function() {
+					Tree.list(diffTransformer);
+				}
 			}, '')
 		])
 	]);

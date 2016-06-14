@@ -10,16 +10,12 @@ var Editor = module.exports = {
 	controller: function() {
 		var self = this;
 		var file = state.activeDirOrFile;
-
-		// self.content = File.content('src/index.js').then(function(res) {
-		// 	console.log(res);
-  //           return res;
-  //       });
 	},
 	view: function(ctrl) {
 		var editorRender = function() {
 			var editor = ace.edit('javascript-editor');
 			editor.getSession().setMode('ace/mode/javascript');
+			editor.getSession().setUseWorker(false);
 			editor.setTheme('ace/theme/monokai');
 			editor.renderer.updateFull();
 			editor.setFontSize(14);

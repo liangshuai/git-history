@@ -1,19 +1,15 @@
 import m from 'mithril';
+import _ from '../util/util';
 
 var Tree = function(data) {
 }
 
-var sortKeys = function(obj, sortFun) {
-    return Object.keys(obj).sort(sortFun).reduce(function (result, key) {
-        result[key] = obj[key];
-        return result;
-    }, {});
-}
+Tree.Data = m.prop({});
 
 var adapter = function(obj, result, prev) {
 	result = result || {};
 
-	obj = sortKeys(obj, function(a,b) {
+	obj = _.sortKeys(obj, function(a,b) {
 		return a !== 'files'? 0 : 1;
 	});
 
@@ -42,12 +38,18 @@ var adapter = function(obj, result, prev) {
 	return result;
 }
 
-Tree.list = function(data) {
-	var model = {};
-
-	return m.request({method: "GET", url: "/git/files"}).then(function(res) {
+Tree.list = function(transformer) {
+	return m.request({method: "GET", url: "/git/files", unwrapSuccess: transformer || _.noop}).then(function(res) {
 		var result = adapter(res);
+		result.toggle = true;
+		Tree.Data(result);
 		return result;
+	});
+}
+
+Tree.diff = function() {
+	return m.request({method: "GET", url: "/git/tree/diff"}).then(function(res) {
+		return res;
 	});
 }
 

@@ -31,7 +31,7 @@
     "brace": "^0.8.0",
     "classnames": "^2.2.5",
     "express-session": "^1.13.0",
-    "git-command": "^1.0.5",
+    "git-command": "^1.0.8",
     "mithril": "0.2.4",
     "ramda": "^0.21.0"
   },

@@ -71,4 +71,17 @@ router.get('/diff', function(req, res) {
 	});
 });
 
+router.get('/tree/diff', function(req, res) {
+	var repoName = req.session.repoName || 'node-git';
+	var git = new Git('./repo/' + repoName);
+
+	git.diff('8db731d58b7880', '3484202d6acf4', 's').then(response => {
+		res.send(response);
+	}).catch(err => {
+		res.send({
+			"message": "error"
+		});
+	});
+});
+
 module.exports = router;

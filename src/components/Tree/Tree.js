@@ -8,7 +8,6 @@ import File from '../../model/File.js';
 
 var TreeElem = {
     view: function(ctrl, obj) {
-
         var template = function(item) {
             return m('li',  [
                             m('div', {class: cx(styles.treeWholeRow, {
@@ -45,15 +44,10 @@ var TreeElem = {
 var Tree  = module.exports = {
     controller: function() {
         var self = this;
-
-        self.list = TreeModel.list().then(function(res) {
-            res.toggle = true;
-            return res;
-        });
+        self.list = TreeModel.list();
     },
 
     view: function(ctrl) {
-
-        return m.component(TreeElem, ctrl.list());
+        return m.component(TreeElem, TreeModel.Data());
     }
 };

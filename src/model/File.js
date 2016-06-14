@@ -12,9 +12,7 @@ File.content = function(data) {
 		});
 	}else{
 		return;
-	}
-
-	
+	}	
 }
 
 module.exports = File;
