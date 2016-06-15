@@ -1,5 +1,6 @@
 import m from 'mithril';
 import _ from '../util/util';
+import state from './State';
 
 var Tree = function(data) {
 }
@@ -43,6 +44,7 @@ Tree.list = function(transformer) {
 		var result = adapter(res);
 		result.toggle = true;
 		Tree.Data(result);
+		state.repoName = result.name;
 		return result;
 	});
 }

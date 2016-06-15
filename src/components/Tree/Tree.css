@@ -6,6 +6,15 @@
 	line-height: 1.5;
 	cursor: pointer;
 }
+.rowText:global(.modified){
+    color: #5eb3ef;
+}
+.rowText:global(.created){
+    color: #41d445;
+}
+.rowText:global(.deletion){
+    color: #FC8122;;
+}
 
 .treeWholeRow{
 	position: absolute;

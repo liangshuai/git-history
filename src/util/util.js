@@ -11,4 +11,9 @@ _.sortKeys = function(obj, sortFun) {
     }, {});
 }
 
+_.replacePath = function(path) {
+    var pattern = /(.*?)(__GH__FILE__(.*?)__STATE__)(.*?)/;
+    return path.replace(pattern, '$1$4');
+}
+
 module.exports = _;
