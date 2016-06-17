@@ -1,5 +1,4 @@
 import m from 'mithril';
-import R from 'ramda';
 import cx from 'classnames';
 import styles from './Tree.css';
 import TreeModel from '../../model/Tree.js';
@@ -37,7 +36,7 @@ var TreeElem = {
         }
 
         return m("ul", [
-                R.is(Array, obj)? (
+                Array.isArray(obj) ? (
                     obj.map(function(elem) {
                         return template(elem);
                     })
