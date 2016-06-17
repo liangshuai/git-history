@@ -1,4 +1,5 @@
 import m from 'mithril';
+import state from './State.js';
 
 var Commit = function(data) {
 };
@@ -17,6 +18,20 @@ Commit.diff = function(commitA){
 
 		return res;
 	});
+};
+
+Commit.checkout = function(targetCommit, callback) {
+	if (confirm('Are you sure to checkout to commit:' + targetCommit)) {
+		return m.request({
+			method: "GET",
+			url: "/git/checkout/" + targetCommit
+		}).then(function(res) {
+			// TODO reload the file tree, diff info, HEAD info
+			state.currentHead = targetCommit;
+
+			return res;
+		});
+	}
 };
 
 
