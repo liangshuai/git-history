@@ -1,0 +1,124 @@
+.diffContainer{
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    top: 0px !important;
+    height: 100%;
+    width: calc(100% - 360px);
+}
+.mainBoard{
+    bottom: 0px;
+    top: 21px;
+    left: 26px;
+    right: 26px;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+}
+
+.gutter {
+    flex: 0 0 30px;
+    -webkit-flex: 0 0 30px;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    background-color: #efefef;
+    overflow: hidden;
+}
+.editor {
+	flex-grow: 1;
+    -webkit-flex-grow: 1;
+    position: relative;
+}
+
+
+:global #flex-container {
+    display: flex;
+    display: -webkit-flex;
+    flex-direction: row;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    top: 0px !important;
+    left: 0px;
+    height: 100%;
+    width: 100%;
+    overflow: auto;
+}
+:global #flex-container>div {
+    flex-grow: 1;
+    -webkit-flex-grow: 1;
+    position: relative;
+}
+:global #flex-container>div#acediff-gutter {
+    flex: 0 0 60px;
+    -webkit-flex: 0 0 60px;
+    border-left: 1px solid #999999;
+    border-right: 1px solid #999999;
+    background-color: #efefef;
+    overflow: hidden;
+}
+:global #acediff-gutter svg {
+    background-color: #efefef;
+}
+
+:global #acediff-left-editor {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+:global #acediff-right-editor {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+:global .acediff-diff {
+    background-color: #1b728c;
+    border-top: 1px solid #79b0cc;
+    border-bottom: 1px solid #79b0cc;
+    position: absolute;
+    z-index: 4;
+}
+:global .acediff-diff.targetOnly {
+    height: 0px !important;
+    border-top: 1px solid #a2d7f2;
+    border-bottom: 0px;
+    position: absolute;
+}
+:global .acediff-connector {
+    fill: #d8f2ff;
+    stroke: #a2d7f2;
+}
+
+:global .acediff-copy-left {
+    float: right;
+}
+:global .acediff-copy-right,
+:global .acediff-copy-left {
+    position: relative;
+}
+:global .acediff-copy-right div {
+    color: #000000;
+    text-shadow: 1px 1px #ffffff;
+    position: absolute;
+    margin: 2px 3px;
+    cursor: pointer;
+}
+:global .acediff-copy-right div:hover {
+    color: #004ea0;
+}
+:global .acediff-copy-left div {
+    color: #000000;
+    text-shadow: 1px 1px #ffffff;
+    position: absolute;
+    right: 0px;
+    margin: 2px 3px;
+    cursor: pointer;
+}
+:global .acediff-copy-left div:hover {
+    color: #c98100;
+}
