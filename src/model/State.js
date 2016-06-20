@@ -2,7 +2,8 @@ var State = {
 	treeState: true,
 	commitsState: false,
 	activeDirOrFile: '',
-	repoName: ''
+	repoName: '',
+	diffMode: false
 }
 
 module.exports = State;

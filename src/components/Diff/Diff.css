@@ -9,14 +9,9 @@
     height: 100%;
     width: calc(100% - 360px);
 }
-.mainBoard{
-    bottom: 0px;
-    top: 21px;
-    left: 26px;
-    right: 26px;
-    position: absolute;
-    z-index: 1;
-    display: flex;
+
+.diffContainer:global(.toggled) {
+    width: 100%;
 }
 
 .gutter {
