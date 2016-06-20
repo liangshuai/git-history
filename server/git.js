@@ -71,6 +71,27 @@ router.get('/diff', function(req, res) {
 	});
 });
 
+router.get('/checkout/:commitId', function(req, res) {
+	var repoName = req.session.repoName || 'node-git';
+	var git = new Git('./repo/' + repoName);
+	var targetCommitId = req.params.commitId;
+
+	if(typeof git.checkout === 'function'){
+		git.checkout(targetCommitId).then(response => {
+			res.send(response);
+		}).catch(err => {
+			res.send({
+				"message": "error"
+			});
+		});
+	}
+	else {
+		res.send({});
+	}
+});
+
+
+
 router.get('/tree/diff', function(req, res) {
 	var repoName = req.session.repoName || 'node-git';
 	var git = new Git('./repo/' + repoName);

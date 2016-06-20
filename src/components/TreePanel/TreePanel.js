@@ -2,6 +2,7 @@ import m from 'mithril';
 import styles from './TreePanel.css';
 import Tree from '../Tree/Tree.js';
 import TreeModel from '../../model/Tree.js';
+import state from '../../model/State.js';
 
 var TreePanel = module.exports = {
     controller: function() {
@@ -11,6 +12,9 @@ var TreePanel = module.exports = {
         return m("section", {class: styles.treePanel}, [
             m('div', {class: styles.toolBar}, [
                 m('ul', {class: styles.toolBarCommands}, [
+                    m('li', {class: styles.toolBarCommitID}, [
+                        m('span', 'HEAD > ' + state.currentHead),
+                    ]), 
                     m('li', {class: styles.toolBarCommand}, [
                         m('i.fa.fa-refresh.pointer', {
                             onclick: function() {

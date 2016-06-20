@@ -90,7 +90,10 @@ function CommitNode(nodeData) {
 			class: styles.buttons
 		}, [
 			m('a', {
-				class: [styles.commitId, styles.linkButton].join(' ')
+				class: [styles.commitId, styles.linkButton].join(' '),
+				onclick: function() {
+					CommitModel.checkout(nodeData.commitId);
+				}
 			}, nodeData.commitId.substr(0, 7)),
 			m('a.fa.fa-bars', {
 				class: [styles.btnCheckout, styles.linkButton].join(' '),
