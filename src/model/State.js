@@ -3,7 +3,8 @@ var State = {
 	commitsState: false,
 	activeDirOrFile: '',
 	repoName: '',
-	diffMode: false
+	diffMode: false,
+	currentHead: 'master'
 }
 
 module.exports = State;
