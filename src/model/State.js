@@ -3,6 +3,7 @@ var State = {
 	commitsState: false,
 	activeDirOrFile: '',
 	repoName: '',
+	diffMode: false,
 	currentHead: 'master'
 }
 

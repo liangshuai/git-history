@@ -8,6 +8,7 @@ import Tree from '../../model/Tree.js';
 import styles from './index.css';
 import state from '../../model/State.js';
 import Editor from '../../components/Editor/Editor.js';
+import Diff from '../../components/Diff/Diff.js';
 
 var Index = module.exports = {
 	controller: function(){
@@ -17,7 +18,7 @@ var Index = module.exports = {
 				m.component(Nav),
 				m('.mainBoard', {class: styles.mainBoard},[
 					state.treeState?m.component(TreePanel): '',
-					m.component(Editor)
+					state.diffMode?m.component(Diff):m.component(Editor)
 				]),
 				m('.sidebar', [
 					m.component(LeftBar),

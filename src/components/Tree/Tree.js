@@ -4,6 +4,7 @@ import styles from './Tree.css';
 import TreeModel from '../../model/Tree.js';
 import state from '../../model/State.js';
 import File from '../../model/File.js';
+import Diff from '../../model/Diff.js';
 import CONF from '../../config/config';
 import _ from '../../util/util';
 
@@ -14,7 +15,9 @@ var TreeElem = {
                             m('div', {class: cx(styles.treeWholeRow, {
                                 'active': state.activeDirOrFile === _.replacePath(item.path)
                             }), onclick: function() {
+                                item.name.startsWith(CONF.FILE_STATE_COMMON_PREFIX) ? (state.diffMode = true) : (state.diffMode = false);
                                 state.activeDirOrFile = _.replacePath(item.path);
+                                state.diffMode && Diff.compare(state.activeDirOrFile);
                                 if(item.children) {
                                     item.toggle = !item.toggle;
                                     item.active = true;
