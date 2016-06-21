@@ -4,7 +4,8 @@ var State = {
 	activeDirOrFile: '',
 	repoName: '',
 	diffMode: false,
-	currentHead: 'master'
+	currentHead: 'master',
+	isCloned: false
 }
 
 module.exports = State;

@@ -94,7 +94,9 @@
     this.editors.left.ace.setReadOnly(!this.options.left.editable);
     this.editors.right.ace.setReadOnly(!this.options.right.editable);
     this.editors.left.ace.setTheme(getTheme(this, C.EDITOR_LEFT));
-    this.editors.right.ace.setTheme(getTheme(this, C.EDITOR_RIGHT));
+    this.editors.right.ace.setTheme(getTheme(this, C.EDITOR_RIGHT)); 
+    this.editors.left.ace.getSession().setUseWorker(false);
+    this.editors.right.ace.getSession().setUseWorker(false);
 
     createCopyContainers(this);
     createGutter(this);

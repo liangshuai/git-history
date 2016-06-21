@@ -11,7 +11,6 @@ Diff.Right = m.prop({});
 Diff.getLeftContent = function(filename) {
 	return m.request({method: "GET", url: "/git/file/" + filename}).then(function(res) {
 		Diff.Left(res.data);
-		console.log(Diff.Left());
 		return res;
 	});
 }
@@ -22,7 +21,6 @@ Diff.getRightContent = function(commitID, filename) {
 	filename = pathArr.join('/');
 	return m.request({method: "GET", url: "/git/show/" + commitID + "/" + filename}).then(function(res) {
 		Diff.Right(res.data);
-		console.log(Diff.Right());
 		return res;
 	});
 }
