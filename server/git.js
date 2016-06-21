@@ -33,11 +33,12 @@ router.get('/clone', function(req, res) {
 	});
 });
 
-router.get('/commits', function(req, res) {
-	var repoName = req.session.repoName || 'node-git';
+router.get('/commits/:source', function(req, res) {
+	var repoName = req.session.repoName || 'node-git',
+		source = req.query.source,
+		git = new Git('./repo/' + repoName);
 
-	var git = new Git('./repo/' + repoName);
-	git.log().then(list => {
+	git.log(source).then(list => {
 		res.send(list);
 	}).catch(err => {
 		res.send({
