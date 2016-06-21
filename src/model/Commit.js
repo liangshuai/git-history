@@ -7,7 +7,7 @@ var Commit = function(data) {
 Commit.list = function(data) {
 	var model = {};
 
-	return m.request({method: "GET", url: "/git/commits"}).then(function(res) {
+	return m.request({method: "GET", url: "/git/commits/master"}).then(function(res) {
 		return res;
 	});
 };
