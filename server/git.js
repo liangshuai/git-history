@@ -35,7 +35,7 @@ router.get('/clone', function(req, res) {
 
 router.get('/commits/:source', function(req, res) {
 	var repoName = req.session.repoName || 'node-git',
-		source = req.query.source,
+		source = req.params.source,
 		git = new Git('./repo/' + repoName);
 
 	git.log(source).then(list => {
@@ -112,9 +112,12 @@ router.get('/checkout/:commitId', function(req, res) {
 
 router.get('/tree/diff', function(req, res) {
 	var repoName = req.session.repoName || 'node-git';
+	var commitA = req.query.commitA;
+	var commitB = req.query.commitB;
 	var git = new Git('./repo/' + repoName);
 
-	git.diff('8db731d58b7880', '3484202d6acf4', 's').then(response => {
+	commitA = commitA || 'HEAD';
+	git.diff(commitA, commitB, 's').then(response => {
 		res.send(response);
 	}).catch(err => {
 		res.send({

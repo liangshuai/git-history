@@ -2,6 +2,7 @@ import m from 'mithril';
 import styles from './Commits.css';
 import CommitModel from '../../model/Commit.js';
 import Tree from '../../model/Tree';
+import Diff from '../../model/Diff';
 import CONF from '../../config/config';
 import state from '../../model/State.js';
 
@@ -92,12 +93,15 @@ function CommitNode(nodeData) {
 			m('a', {
 				class: [styles.commitId, styles.linkButton].join(' '),
 				onclick: function() {
+					Tree.compareCommitIDA(nodeData.commitId);
 					CommitModel.checkout(nodeData.commitId);
 				}
 			}, nodeData.commitId.substr(0, 7)),
 			m('a.fa.fa-bars', {
 				class: [styles.btnCheckout, styles.linkButton].join(' '),
 				onclick: function() {
+					Tree.compareCommitIDB(nodeData.commitId);
+					Diff.RightCommitID(nodeData.commitId);
 					Tree.list(diffTransformer);
 				}
 			}, '')

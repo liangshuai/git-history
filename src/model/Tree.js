@@ -6,6 +6,8 @@ var Tree = function(data) {
 }
 
 Tree.Data = m.prop({});
+Tree.compareCommitIDA = m.prop('HEAD');
+Tree.compareCommitIDB = m.prop('');
 
 var adapter = function(obj, result, prev) {
 	result = result || {};
@@ -50,7 +52,8 @@ Tree.list = function(transformer) {
 }
 
 Tree.diff = function() {
-	return m.request({method: "GET", url: "/git/tree/diff"}).then(function(res) {
+
+	return m.request({method: "GET", url: "/git/tree/diff?commitB=" + Tree.compareCommitIDB() + "&commitA=" + Tree.compareCommitIDA()}).then(function(res) {
 		return res;
 	});
 }

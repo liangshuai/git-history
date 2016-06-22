@@ -8,6 +8,8 @@ var Diff = function(data) {
 Diff.Left = m.prop({});
 Diff.Right = m.prop({});
 
+Diff.RightCommitID = m.prop('');
+
 Diff.getLeftContent = function(filename) {
 	return m.request({method: "GET", url: "/git/file/" + filename}).then(function(res) {
 		Diff.Left(res.data);
@@ -27,7 +29,7 @@ Diff.getRightContent = function(commitID, filename) {
 
 Diff.compare = function(filename) {
 	Diff.getLeftContent(filename);
-	Diff.getRightContent('7b918b305e11df', filename);
+	Diff.getRightContent(Diff.RightCommitID(), filename);
 }
 
 
