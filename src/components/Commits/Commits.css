@@ -25,12 +25,16 @@
 	width: auto;
 }
 
+.node:global(.active) {
+	background-color: rgba(26,175,93,.5);
+}
+
 .node:last-child {
 	border-bottom: 1px solid #aaa;
 }
 
 .portrait {
-	background-color: #333;
+	/*background-color: #333;*/
 	color: #fff;
 	float: left;
 	font-size: 30px;

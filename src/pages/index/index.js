@@ -12,7 +12,7 @@ import Diff from '../../components/Diff/Diff.js';
 
 var Index = module.exports = {
 	controller: function(){
-		 !state.isCloned && m.route('/clone');
+		 !state.isCloned && !window.localStorage.getItem('isCloned') && m.route('/clone');
 	},
 	view: function() {
 		return [

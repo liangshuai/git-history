@@ -5,6 +5,7 @@ import Tree from '../../model/Tree';
 import Diff from '../../model/Diff';
 import CONF from '../../config/config';
 import state from '../../model/State.js';
+import cx from 'classnames';
 
 var CommitContainer = module.exports = {
 	_current: 'CommitContainer',
@@ -68,9 +69,9 @@ function CommitList(list) {
 }
 
 function CommitNode(nodeData) {
-	return m('div', {
-		class: styles.node
-	}, [
+	return m('div', {class:cx(styles.node, {
+                    'active': nodeData.commitId === state.currentHead
+        })}, [
 		m('i.fa.fa-github', {
 			class: styles.portrait
 		}),
